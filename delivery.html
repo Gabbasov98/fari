@@ -96,52 +96,56 @@
                     </div>
                     <script>
                         window.addEventListener('DOMContentLoaded', () => {
-                            ymaps.ready(init);
-                            let coord = [55.905669, 37.611122]
-                            let mapPoints = [{
-                                    cords: [55.905669, 37.611122]
-                                },
-                                {
-                                    cords: [45.043069, 38.948696]
-                                },
-                                {
-                                    cords: [47.284489, 39.781228]
-                                },
-                                {
-                                    cords: [59.838575, 30.466462]
-                                },
-                                {
-                                    cords: [56.880863, 60.627002]
-                                },
-                                {
-                                    cords: [55.724784, 49.191835]
-                                },
-                                {
-                                    cords: [55.769788, 37.502076]
-                                },
-                            ]
+                            setTimeout(() => {
+                                initYandexMap()
 
-                            function init() {
-                                let myMap = new ymaps.Map("map", {
-                                    center: coord,
-                                    zoom: 4,
-                                    controls: []
-                                });
+                                ymaps.ready(init);
+                                let coord = [55.905669, 37.611122]
+                                let mapPoints = [{
+                                        cords: [55.905669, 37.611122]
+                                    },
+                                    {
+                                        cords: [45.043069, 38.948696]
+                                    },
+                                    {
+                                        cords: [47.284489, 39.781228]
+                                    },
+                                    {
+                                        cords: [59.838575, 30.466462]
+                                    },
+                                    {
+                                        cords: [56.880863, 60.627002]
+                                    },
+                                    {
+                                        cords: [55.724784, 49.191835]
+                                    },
+                                    {
+                                        cords: [55.769788, 37.502076]
+                                    },
+                                ]
 
-                                myMap.behaviors.disable('scrollZoom');
-
-
-                                mapPoints.forEach(el => {
-                                    let placeMark = new ymaps.Placemark(el.cords, {}, {
-                                        iconLayout: 'default#image',
-                                        iconImageHref: "img/mark.svg",
-                                        iconImageSize: [30, 30],
-                                        iconImageOffset: [-15, -15]
+                                function init() {
+                                    let myMap = new ymaps.Map("map", {
+                                        center: coord,
+                                        zoom: 4,
+                                        controls: []
                                     });
-                                    myMap.geoObjects.add(placeMark);
-                                })
 
-                            }
+                                    myMap.behaviors.disable('scrollZoom');
+
+
+                                    mapPoints.forEach(el => {
+                                        let placeMark = new ymaps.Placemark(el.cords, {}, {
+                                            iconLayout: 'default#image',
+                                            iconImageHref: "img/mark.svg",
+                                            iconImageSize: [30, 30],
+                                            iconImageOffset: [-15, -15]
+                                        });
+                                        myMap.geoObjects.add(placeMark);
+                                    })
+
+                                }
+                            }, 5000);
                         })
                     </script>
 
@@ -231,7 +235,7 @@
         </footer>
     </div>
 
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9133eb49-3a97-4b2d-90be-6b80a97a5036"></script>
+    <!--<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9133eb49-3a97-4b2d-90be-6b80a97a5036"></script>-->
     <script src="js/libs.min.js"></script>
     <script src="js/main.min.js"></script>
 
