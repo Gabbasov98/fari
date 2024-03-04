@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="css/libs.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9133eb49-3a97-4b2d-90be-6b80a97a5036"></script>
+    <title>Главная</title>
+</head>
+
+
+
+<style>
+    .wrapper a {
+        font-size: 30px;
+        text-transform: capitalize;
+    }
+
+    .wrapper button {
+        margin-bottom: 25px;
+        width: 300px;
+        height: 45px;
+    }
+</style>
+
+<body class="m-page">
+
+    <div class="wrapper" style="padding: 50px;">
+        <a href="index.html" style="display: block; margin-bottom: 20px;">
+            Главная
+        </a>
+        <a href="catalog.html" style="display: block; margin-bottom: 20px;">
+            Каталог
+        </a>
+        <a href="catalog-item.html" style="display: block; margin-bottom: 20px;">
+            карточка товара
+        </a>
+        <a href="catalog-empty.html" style="display: block; margin-bottom: 20px;">
+            Каталог (Нет результатов)
+        </a>
+        <a href="cart.html" style="display: block; margin-bottom: 20px;">
+            Корзина
+        </a>
+        <a href="search.html" style="display: block; margin-bottom: 20px;">
+            Результат поиска
+        </a>
+        <a href="search-empty.html" style="display: block; margin-bottom: 20px;">
+            Результат поиска (Пусто)
+        </a>
+        <a href="404.html" style="display: block; margin-bottom: 20px;">
+            404
+        </a>
+        <a href="delivery.html" style="display: block; margin-bottom: 20px;">
+            Доставка и оплата
+        </a>
+        <a href="guarantee.html" style="display: block; margin-bottom: 20px;">
+            Гаранитии
+        </a>
+        <a href="sellers.html" style="display: block; margin-bottom: 20px;">
+            Дилерам и оптовикам
+        </a>
+        <a href="addresses.html" style="display: block; margin-bottom: 20px;">
+            Адреса
+        </a>
+
+
+
+
+        <button data-modal="successModal" style="border: 2px solid #000;margin-bottom: 20px;">
+            Заказа принят
+        </button>
+
+
+        <!--        <code>-->
+
+
+        <!--            ('components/page-blocks/_filter-slider.html',{ <br>-->
+        <!--            "start1":"0", <br>-->
+        <!--            "start2":"30000", <br>-->
+        <!--            "min":"1000", <br>-->
+        <!--            "max":"100000", <br>-->
+        <!--            })-->
+
+        <!--        </code>-->
+    </div>
+
+
+
+
+
+
+
+    <div class="modal" id="successModal">
+        <div class="modal__bg modal-bg _close-modal"></div>
+        <div class="modal__dialog">
+            <button class="close-btn _close-modal">
+                <img src="img/close.svg" alt="">
+            </button>
+            <div class="modal__info">
+                <div class="h3">
+                    Заказа принят
+                </div>
+                <div class="modal__desc text16 text14-tablet">
+                    В ближайшее время менеджер с вами связется для уточнения деталей
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  -->
+    <script src="js/libs.min.js"></script>
+    <script src="js/main.min.js"></script>
+
+</body>
+
+</html>
