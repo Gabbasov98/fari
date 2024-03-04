@@ -8,7 +8,6 @@
     <meta name="keywords" content="">
     <link rel="stylesheet" href="css/libs.min.css">
     <link rel="stylesheet" href="css/style.min.css">
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9133eb49-3a97-4b2d-90be-6b80a97a5036"></script>
     <title>Товар</title>
 </head>
 
@@ -91,28 +90,53 @@
                 </div>
             </div>
 
-            <div class="catalog-item">
+            <div class="catalog-item" data-id="1">
                 <div class="container">
                     <div class="catalog-item__grid">
                         <div class="catalog-item__col">
                             <div class="product-info">
                                 <div class="product-info__col">
                                     <div class="gallery">
-                                        <a href="img/product.webp" data-fancybox class="gallery-item gallery-item--big">
-                                            <div class="gallery-item__img">
-                                                <img src="img/product.webp" alt="">
+                                        <div class="gallery__big">
+                                            <div class="swiper mySwiper2">
+                                                <div class="swiper-wrapper gallery-group">
+                                                    <div class="swiper-slide">
+                                                        <a href="img/product.webp" data-fancybox="gallery" class="gallery-item">
+                                                            <div class="gallery-item__img">
+                                                                <img src="img/product.webp" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <a href="img/product2.webp" data-fancybox="gallery" class="gallery-item">
+                                                            <div class="gallery-item__img">
+                                                                <img src="img/product2.webp" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </a>
-                                        <a href="img/product.webp" data-fancybox class="gallery-item">
-                                            <div class="gallery-item__img">
-                                                <img src="img/product.webp" alt="">
+                                        </div>
+                                        <div class="gallery__small">
+                                            <div thumbsSlider class="swiper mySwiper">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide">
+                                                        <div class="gallery-item">
+                                                            <div class="gallery-item__img">
+                                                                <img src="img/product.webp" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <div class="gallery-item">
+                                                            <div class="gallery-item__img">
+                                                                <img src="img/product.webp" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </a>
-                                        <a href="img/product.webp" data-fancybox class="gallery-item">
-                                            <div class="gallery-item__img">
-                                                <img src="img/product.webp" alt="">
-                                            </div>
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="product-info__col2">
@@ -161,56 +185,61 @@
 
                             </div>
                             <script>
-                                ymaps.ready(init);
-                                let coord = [55.769788, 37.502076]
-                                let mapPoints = [{
-                                        cords: [55.769788, 37.502076]
-                                    },
-                                    {
-                                        cords: [45.043069, 38.948696]
-                                    },
-                                    {
-                                        cords: [47.284489, 39.781228]
-                                    },
-                                    {
-                                        cords: [59.838575, 30.466462]
-                                    },
-                                    {
-                                        cords: [56.880863, 60.627002]
-                                    },
-                                    {
-                                        cords: [55.724784, 49.191835]
-                                    },
-                                ]
+                                window.addEventListener('DOMContentLoaded', () => {
+                                    ymaps.ready(init);
+                                    let coord = [55.905669, 37.611122]
+                                    let mapPoints = [{
+                                            cords: [55.905669, 37.611122]
+                                        },
+                                        {
+                                            cords: [45.043069, 38.948696]
+                                        },
+                                        {
+                                            cords: [47.284489, 39.781228]
+                                        },
+                                        {
+                                            cords: [59.838575, 30.466462]
+                                        },
+                                        {
+                                            cords: [56.880863, 60.627002]
+                                        },
+                                        {
+                                            cords: [55.724784, 49.191835]
+                                        },
+                                        {
+                                            cords: [55.769788, 37.502076]
+                                        },
+                                    ]
 
-                                function init() {
-                                    let myMap = new ymaps.Map("map", {
-                                        center: coord,
-                                        zoom: 17,
-                                        controls: []
-                                    });
-
-                                    myMap.behaviors.disable('scrollZoom');
-
-
-                                    mapPoints.forEach(el => {
-                                        let placeMark = new ymaps.Placemark(el.cords, {}, {
-                                            iconLayout: 'default#image',
-                                            iconImageHref: "img/mark.svg",
-                                            iconImageSize: [30, 30],
-                                            iconImageOffset: [-15, -15]
+                                    function init() {
+                                        let myMap = new ymaps.Map("map", {
+                                            center: coord,
+                                            zoom: 17,
+                                            controls: []
                                         });
-                                        myMap.geoObjects.add(placeMark);
-                                    })
+
+                                        myMap.behaviors.disable('scrollZoom');
 
 
-                                    $(".address-item").click(function() {
-                                        let id = +$(this).attr("data-id")
-                                        console.log(id)
-                                        myMap.setCenter(mapPoints[id].cords, 17)
-                                    })
+                                        mapPoints.forEach(el => {
+                                            let placeMark = new ymaps.Placemark(el.cords, {}, {
+                                                iconLayout: 'default#image',
+                                                iconImageHref: "img/mark.svg",
+                                                iconImageSize: [30, 30],
+                                                iconImageOffset: [-15, -15]
+                                            });
+                                            myMap.geoObjects.add(placeMark);
+                                        })
 
-                                }
+
+                                        $(".address-item").click(function() {
+                                            let id = +$(this).attr("data-id")
+                                            console.log(id)
+                                            myMap.setCenter(mapPoints[id].cords, 17)
+                                        })
+
+                                    }
+                                })
                             </script>
 
                         </div>
@@ -225,7 +254,8 @@
                                     </div>
                                 </div>
                                 <button class="product-cart__btn m-btn m-btn--small m-btn-green">
-                                    <span>В корзину</span>
+                                    <span class="_view1">В корзину</span>
+                                    <span class="_view2">Добавлено</span>
                                 </button>
                             </div>
                             <div class="product-delivery _tabs-parent">
@@ -262,7 +292,8 @@
 
                                 <div class="tab-content _tab2">
                                     <ul class="self-delivery">
-                                        <li class="address-item" data-id="0">Москва, 2-й Силикатный Проезд 9, строение 2.</li>
+                                        <li class="address-item" data-id="0">Московская обл., Мытищинский р-н, МКАД 86-ой км, владение 13А, строение 1</li>
+                                        <li class="address-item" data-id="6">Москва, 2-й Силикатный Проезд 9, строение 2.</li>
                                         <li class="address-item" data-id="1">Краснодар, Кропоткина 50, заезд с Кропоткина, 1-ый этаж, чёрная вывеска Тюнинг-Авто.</li>
                                         <li class="address-item" data-id="2">Ростов-На-Дону, Песенная 1/17, цокольный этаж.</li>
                                         <li class="address-item" data-id="3">Санкт-Петербург, Грузовой проезд 16, 1-ый бокс, вывеска Custom Zone.</li>
@@ -341,6 +372,7 @@
         </footer>
     </div>
 
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9133eb49-3a97-4b2d-90be-6b80a97a5036"></script>
     <script src="js/libs.min.js"></script>
     <script src="js/main.min.js"></script>
 

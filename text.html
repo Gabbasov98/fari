@@ -8,7 +8,7 @@
     <meta name="keywords" content="">
     <link rel="stylesheet" href="css/libs.min.css">
     <link rel="stylesheet" href="css/style.min.css">
-    <title>Адреса</title>
+    <title>Text</title>
 </head>
 
 
@@ -81,105 +81,84 @@
                 <div class="container">
                     <ul class="breadcrumbs">
                         <li><a href="">Главная</a></li>
-                        <li><span>Адреса</span></li>
+                        <li><span>Text</span></li>
                     </ul>
                     <h1 class="h2">
-                        Адреса
+                        Text
                     </h1>
                 </div>
             </div>
 
-            <div class="contacts contacts--page">
+            <div class="textpage">
                 <div class="container">
-                    <div class="contacts__grid">
-                        <div class="contacts__col">
-                            <div class="map" id="map">
+                    <div class="text text--gap0">
+                        <h2>
+                            заголоок h2
+                        </h2>
+                        <p>
+                            Для современного мира внедрение современных методик однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.
+                        </p>
+                        <blockquote>
+                            Для современного мира внедрение современных <br>
+                            методик однозначно определяет каждого участника <br>
+                            как способного принимать
+                        </blockquote>
+                        <ul>
+                            <li>
+                                пункт
+                                <ul>
+                                    <li>пункт</li>
+                                    <li>пункт</li>
+                                    <li>пункт</li>
+                                    <li>пункт</li>
+                                </ul>
+                            </li>
+                            <li>пункт</li>
+                            <li>пункт</li>
+                            <li>пункт</li>
+                        </ul>
 
-                            </div>
-                            <script>
-                                window.addEventListener('DOMContentLoaded', () => {
-                                    ymaps.ready(init);
-                                    let coord = [55.905669, 37.611122]
-                                    let mapPoints = [{
-                                            cords: [55.905669, 37.611122]
-                                        },
-                                        {
-                                            cords: [45.043069, 38.948696]
-                                        },
-                                        {
-                                            cords: [47.284489, 39.781228]
-                                        },
-                                        {
-                                            cords: [59.838575, 30.466462]
-                                        },
-                                        {
-                                            cords: [56.880863, 60.627002]
-                                        },
-                                        {
-                                            cords: [55.724784, 49.191835]
-                                        },
-                                        {
-                                            cords: [55.769788, 37.502076]
-                                        },
-                                    ]
+                        <hr>
 
-                                    function init() {
-                                        let myMap = new ymaps.Map("map", {
-                                            center: coord,
-                                            zoom: 17,
-                                            controls: []
-                                        });
+                        <ol>
+                            <li>пункт</li>
+                            <li>пункт</li>
+                            <li>пункт</li>
+                            <li>пункт</li>
+                            <li>пункт</li>
+                            <li>пункт</li>
+                        </ol>
 
-                                        myMap.behaviors.disable('scrollZoom');
+                        <hr>
 
-
-                                        mapPoints.forEach(el => {
-                                            let placeMark = new ymaps.Placemark(el.cords, {}, {
-                                                iconLayout: 'default#image',
-                                                iconImageHref: "img/mark.svg",
-                                                iconImageSize: [30, 30],
-                                                iconImageOffset: [-15, -15]
-                                            });
-                                            myMap.geoObjects.add(placeMark);
-                                        })
-
-
-                                        $(".address-item").click(function() {
-                                            let id = +$(this).attr("data-id")
-                                            console.log(id)
-                                            myMap.setCenter(mapPoints[id].cords, 17)
-                                        })
-
-                                    }
-                                })
-                            </script>
-
-                        </div>
-                        <div class="contacts__col2">
-                            <div class="text">
-                                <h5 class="address-item" data-id="0">Центральный офис</h5>
-                                <p>
-                                    141031, Московская обл., Мытищинский р-н, МКАД 86-ой км, владение 13А, строение 1
-                                </p>
-
-                                <hr>
-
-                                <h5>
-                                    Пункты выдачи
-                                </h5>
-                                <ol>
-                                    <li class="address-item" data-id="6">Москва, 2-й Силикатный Проезд 9, строение 2.</li>
-                                    <li class="address-item" data-id="1">Краснодар, Кропоткина 50, заезд с Кропоткина, 1-ый этаж, чёрная вывеска Тюнинг-Авто.</li>
-                                    <li class="address-item" data-id="2">Ростов-На-Дону, Песенная 1/17, цокольный этаж.</li>
-                                    <li class="address-item" data-id="3">Санкт-Петербург, Грузовой проезд 16, 1-ый бокс, вывеска Custom Zone.</li>
-                                    <li class="address-item" data-id="4">Екатеринбург, Фронтовых Бригад 15, строение 9, офис 12.</li>
-                                    <li class="address-item" data-id="5">Казань, Оренбургский тракт 158, “ТЦ ПОРТ”, между 1-м и 2-м входом, цокольный этаж.</li>
-                                </ol>
-                            </div>
-                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Заголовок</th>
+                                    <th>Заголовок</th>
+                                    <th>Заголовок</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Для современного мира внедрение современных методик однозначно определяет каждого</td>
+                                    <td>Участника как способного </td>
+                                    <td>Для современного мира внедрение современных методик однозначно определяет каждого участника как способного принимать собственные решения касаемо системы </td>
+                                </tr>
+                                <tr>
+                                    <td>Для современного мира внедрение современных методик однозначно определяет каждого</td>
+                                    <td>Участника как способного </td>
+                                    <td>Для современного мира внедрение современных методик однозначно определяет каждого участника как способного принимать собственные решения касаемо системы </td>
+                                </tr>
+                                <tr>
+                                    <td>Для современного мира внедрение современных методик однозначно определяет каждого</td>
+                                    <td>Участника как способного </td>
+                                    <td>Для современного мира внедрение современных методик однозначно определяет каждого участника как способного принимать собственные решения касаемо системы </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
             </div>
 
         </main>

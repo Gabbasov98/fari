@@ -8,7 +8,6 @@
     <meta name="keywords" content="">
     <link rel="stylesheet" href="css/libs.min.css">
     <link rel="stylesheet" href="css/style.min.css">
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9133eb49-3a97-4b2d-90be-6b80a97a5036"></script>
     <title>Доставка и оплата</title>
 </head>
 
@@ -96,55 +95,60 @@
 
                     </div>
                     <script>
-                        ymaps.ready(init);
-                        let coord = [55.724784, 49.191835]
-                        let mapPoints = [{
-                                cords: [55.769788, 37.502076]
-                            },
-                            {
-                                cords: [45.043069, 38.948696]
-                            },
-                            {
-                                cords: [47.284489, 39.781228]
-                            },
-                            {
-                                cords: [59.838575, 30.466462]
-                            },
-                            {
-                                cords: [56.880863, 60.627002]
-                            },
-                            {
-                                cords: [55.724784, 49.191835]
-                            },
-                        ]
+                        window.addEventListener('DOMContentLoaded', () => {
+                            ymaps.ready(init);
+                            let coord = [55.905669, 37.611122]
+                            let mapPoints = [{
+                                    cords: [55.905669, 37.611122]
+                                },
+                                {
+                                    cords: [45.043069, 38.948696]
+                                },
+                                {
+                                    cords: [47.284489, 39.781228]
+                                },
+                                {
+                                    cords: [59.838575, 30.466462]
+                                },
+                                {
+                                    cords: [56.880863, 60.627002]
+                                },
+                                {
+                                    cords: [55.724784, 49.191835]
+                                },
+                                {
+                                    cords: [55.769788, 37.502076]
+                                },
+                            ]
 
-                        function init() {
-                            let myMap = new ymaps.Map("map", {
-                                center: coord,
-                                zoom: 4,
-                                controls: []
-                            });
-
-                            myMap.behaviors.disable('scrollZoom');
-
-
-                            mapPoints.forEach(el => {
-                                let placeMark = new ymaps.Placemark(el.cords, {}, {
-                                    iconLayout: 'default#image',
-                                    iconImageHref: "img/mark.svg",
-                                    iconImageSize: [30, 30],
-                                    iconImageOffset: [-15, -15]
+                            function init() {
+                                let myMap = new ymaps.Map("map", {
+                                    center: coord,
+                                    zoom: 4,
+                                    controls: []
                                 });
-                                myMap.geoObjects.add(placeMark);
-                            })
 
-                        }
+                                myMap.behaviors.disable('scrollZoom');
+
+
+                                mapPoints.forEach(el => {
+                                    let placeMark = new ymaps.Placemark(el.cords, {}, {
+                                        iconLayout: 'default#image',
+                                        iconImageHref: "img/mark.svg",
+                                        iconImageSize: [30, 30],
+                                        iconImageOffset: [-15, -15]
+                                    });
+                                    myMap.geoObjects.add(placeMark);
+                                })
+
+                            }
+                        })
                     </script>
 
                     <div class="text text--small">
-                        <h4>
+                        <h2>
                             Самовывоз
-                        </h4>
+                        </h2>
                         <p>
                             Пункты выдачи расположены в каждом городе России. Получить заказ можно в фирменных пунктах выдачи заказов Caroptics.ru в городах присутствия и в пунктах выдачи партнеров CDEK, ТК GTD (КИТ), Энергия.
                             <br>
@@ -157,7 +161,7 @@
 
                         <hr>
 
-                        <h4>Курьерская доставка</h4>
+                        <h2>Курьерская доставка</h2>
                         <p>
                             Заказы доставляются курьерами Caroptics.ru и партнерами-перевозчиками.
                             <br>
@@ -168,7 +172,7 @@
 
                         <hr>
 
-                        <h4>Доставка Почтой России</h4>
+                        <h2>Доставка Почтой России</h2>
                         <p>
                             Отправка заказов Почтой России возможна с оплатой при получении или заранее, стоимость услуг Почты России для всех выбранных товаров будет рассчитана при оформлении заказа, также на странице товара рассчитается отдельно.
                             <br>
@@ -227,6 +231,7 @@
         </footer>
     </div>
 
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9133eb49-3a97-4b2d-90be-6b80a97a5036"></script>
     <script src="js/libs.min.js"></script>
     <script src="js/main.min.js"></script>
 

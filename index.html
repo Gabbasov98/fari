@@ -8,7 +8,6 @@
     <meta name="keywords" content="">
     <link rel="stylesheet" href="css/libs.min.css">
     <link rel="stylesheet" href="css/style.min.css">
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9133eb49-3a97-4b2d-90be-6b80a97a5036"></script>
     <title>Главная</title>
 </head>
 
@@ -158,7 +157,7 @@
                             <div class="swiper-container">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <a href="img/certificate.webp" data-fancybox class="certificate-card">
+                                        <a href="img/certificate.webp" data-fancybox="certificate" class="certificate-card">
                                             <div class="certificate-card__img">
                                                 <img src="img/certificate.webp" alt="">
                                             </div>
@@ -166,7 +165,7 @@
 
                                     </div>
                                     <div class="swiper-slide">
-                                        <a href="img/certificate2.webp" data-fancybox class="certificate-card">
+                                        <a href="img/certificate2.webp" data-fancybox="certificate" class="certificate-card">
                                             <div class="certificate-card__img">
                                                 <img src="img/certificate2.webp" alt="">
                                             </div>
@@ -174,7 +173,7 @@
 
                                     </div>
                                     <div class="swiper-slide">
-                                        <a href="img/certificate3.webp" data-fancybox class="certificate-card">
+                                        <a href="img/certificate3.webp" data-fancybox="certificate" class="certificate-card">
                                             <div class="certificate-card__img">
                                                 <img src="img/certificate3.webp" alt="">
                                             </div>
@@ -182,7 +181,7 @@
 
                                     </div>
                                     <div class="swiper-slide">
-                                        <a href="img/certificate.webp" data-fancybox class="certificate-card">
+                                        <a href="img/certificate.webp" data-fancybox="certificate" class="certificate-card">
                                             <div class="certificate-card__img">
                                                 <img src="img/certificate.webp" alt="">
                                             </div>
@@ -307,62 +306,67 @@
 
                             </div>
                             <script>
-                                ymaps.ready(init);
-                                let coord = [55.769788, 37.502076]
-                                let mapPoints = [{
-                                        cords: [55.769788, 37.502076]
-                                    },
-                                    {
-                                        cords: [45.043069, 38.948696]
-                                    },
-                                    {
-                                        cords: [47.284489, 39.781228]
-                                    },
-                                    {
-                                        cords: [59.838575, 30.466462]
-                                    },
-                                    {
-                                        cords: [56.880863, 60.627002]
-                                    },
-                                    {
-                                        cords: [55.724784, 49.191835]
-                                    },
-                                ]
+                                window.addEventListener('DOMContentLoaded', () => {
+                                    ymaps.ready(init);
+                                    let coord = [55.905669, 37.611122]
+                                    let mapPoints = [{
+                                            cords: [55.905669, 37.611122]
+                                        },
+                                        {
+                                            cords: [45.043069, 38.948696]
+                                        },
+                                        {
+                                            cords: [47.284489, 39.781228]
+                                        },
+                                        {
+                                            cords: [59.838575, 30.466462]
+                                        },
+                                        {
+                                            cords: [56.880863, 60.627002]
+                                        },
+                                        {
+                                            cords: [55.724784, 49.191835]
+                                        },
+                                        {
+                                            cords: [55.769788, 37.502076]
+                                        },
+                                    ]
 
-                                function init() {
-                                    let myMap = new ymaps.Map("map", {
-                                        center: coord,
-                                        zoom: 17,
-                                        controls: []
-                                    });
-
-                                    myMap.behaviors.disable('scrollZoom');
-
-
-                                    mapPoints.forEach(el => {
-                                        let placeMark = new ymaps.Placemark(el.cords, {}, {
-                                            iconLayout: 'default#image',
-                                            iconImageHref: "img/mark.svg",
-                                            iconImageSize: [30, 30],
-                                            iconImageOffset: [-15, -15]
+                                    function init() {
+                                        let myMap = new ymaps.Map("map", {
+                                            center: coord,
+                                            zoom: 17,
+                                            controls: []
                                         });
-                                        myMap.geoObjects.add(placeMark);
-                                    })
+
+                                        myMap.behaviors.disable('scrollZoom');
 
 
-                                    $(".address-item").click(function() {
-                                        let id = +$(this).attr("data-id")
-                                        console.log(id)
-                                        myMap.setCenter(mapPoints[id].cords, 17)
-                                    })
+                                        mapPoints.forEach(el => {
+                                            let placeMark = new ymaps.Placemark(el.cords, {}, {
+                                                iconLayout: 'default#image',
+                                                iconImageHref: "img/mark.svg",
+                                                iconImageSize: [30, 30],
+                                                iconImageOffset: [-15, -15]
+                                            });
+                                            myMap.geoObjects.add(placeMark);
+                                        })
 
-                                }
+
+                                        $(".address-item").click(function() {
+                                            let id = +$(this).attr("data-id")
+                                            console.log(id)
+                                            myMap.setCenter(mapPoints[id].cords, 17)
+                                        })
+
+                                    }
+                                })
                             </script>
 
                         </div>
                         <div class="contacts__col2">
                             <div class="text">
-                                <h5>Центральный офис</h5>
+                                <h5 class="address-item" data-id="0">Центральный офис</h5>
                                 <p>
                                     141031, Московская обл., Мытищинский р-н, МКАД 86-ой км, владение 13А, строение 1
                                 </p>
@@ -373,7 +377,7 @@
                                     Пункты выдачи
                                 </h5>
                                 <ol>
-                                    <li class="address-item" data-id="0">Москва, 2-й Силикатный Проезд 9, строение 2.</li>
+                                    <li class="address-item" data-id="6">Москва, 2-й Силикатный Проезд 9, строение 2.</li>
                                     <li class="address-item" data-id="1">Краснодар, Кропоткина 50, заезд с Кропоткина, 1-ый этаж, чёрная вывеска Тюнинг-Авто.</li>
                                     <li class="address-item" data-id="2">Ростов-На-Дону, Песенная 1/17, цокольный этаж.</li>
                                     <li class="address-item" data-id="3">Санкт-Петербург, Грузовой проезд 16, 1-ый бокс, вывеска Custom Zone.</li>
@@ -426,6 +430,7 @@
         </footer>
     </div>
 
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9133eb49-3a97-4b2d-90be-6b80a97a5036"></script>
     <script src="js/libs.min.js"></script>
     <script src="js/main.min.js"></script>
 
